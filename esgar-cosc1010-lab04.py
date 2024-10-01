@@ -109,9 +109,7 @@ print(f"The average minimum and maximum temperatures for Laramie in 2023 were {a
 
 # For the next part, determine the highest and lowest recorded temperatures.
 
-max1 = max(min_temps and max_temps)
-min1 = min(min_temps or max_temps)
-print(max1, min1)
+
 
 min_min_temp = min(min_temps) #finds the minimum of the minimum temperatures
 min_max_temp = min(max_temps) #finds the minimum of the maximum temperatures
