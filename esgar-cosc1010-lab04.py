@@ -93,27 +93,40 @@ min_temps = [
 # The above two lists are datasets for the maximum and minimum temperatures for Laramie in 2023.
 # Each of these lists has the same length, indicating that they both have the same index positions.
 # Write a single for loop to calculate both the average maximum temperature and the average minimum temperature.
-for temps in max_temps and min_temps:
-    avg_max = (sum(max_temps))/(len(max_temps))
-    avg_min = (sum(min_temps))/(len(min_temps))
-print(f"The average minimum and maximum temperatures for Laramie in 2023 were {avg_min} degrees and {avg_max} degrees, respectively.")
+
+max_total = max_temps[0]
+min_total = min_temps[0]
+
+for temps in range(0,len(min_temps)): #tells python to use each indexed number from the list it is called from.
+    max_total = max_total + max_temps[temps] #iterates the indexed value and adds the next value, keeping a total and growing through each iteration.
+    min_total = min_total + min_temps[temps] #repeats the steps above but for minimum
+avg_min = min_total / (len(min_temps))
+avg_max = max_total /(len(max_temps)) #takes the total added value of the list calculated using max_total and divides it by the number of terms.
+print(f"The average minimum and maximum temperatures for Laramie in 2023 were {avg_min} degrees and {avg_max} degrees, respectively.") #prints the output of each above calculation.
 # You cannot use any pre-existing functions (like mean()) and must perform the calculations manually.
 # Output the results of both calculations.
 
+
 # For the next part, determine the highest and lowest recorded temperatures.
-min_min_temp = min(min_temps)
-min_max_temp = min(max_temps)
-max_min_temp = max(min_temps)
-max_max_temp = max(max_temps)
+
+max1 = max(min_temps and max_temps)
+min1 = min(min_temps or max_temps)
+print(max1, min1)
+
+min_min_temp = min(min_temps) #finds the minimum of the minimum temperatures
+min_max_temp = min(max_temps) #finds the minimum of the maximum temperatures
+max_min_temp = max(min_temps) #finds the maximum of the minimum temperatures
+max_max_temp = max(max_temps) #finds the maximum of the maximum temperatures
 if min_min_temp <= max_min_temp:
     print(f"The minimum temperature recorded was {min_min_temp}")
 else:
     print(f"The minimum temperature recorded was {max_min_temp}")
-
+#this if else statement makes sure the minimum temperature of each list is compared with the smaller one outputed as the answer.
 if min_max_temp <= max_max_temp:
     print(f"The max temperature recorded was {max_max_temp} degrees.")
 else:
     print(f"The max temperature recorded was {min_max_temp} degrees.")
+    #this if else statement makes sure the maximum temperature of each list is compared with the larger on outputed as the answer.
 # HINT: You can find this information without using any logic or looping.
 
 
